@@ -1,3 +1,4 @@
 - npm install
 - npm install express
 - npm install express-session
+- npm install -D tailwindcss
