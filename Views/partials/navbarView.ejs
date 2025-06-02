@@ -1,0 +1,48 @@
+<header class="py-3 px-2">
+
+    <nav class="container flex flex-wrap justify-center max-w-max min-w-10 mx-auto border-2 border-black font-bold text-center rounded-3xl p-1 px-8">
+                <form action="/Home" method="GET">
+                    <button type="submit" id="home-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 text-white font-semibold rounded-t-lg">Home</button>
+                </form>
+                <form action="/Events" method="GET">
+                    <button type="submit" id="event-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold rounded-t-lg">Events</button>
+                </form>
+                <form action="/Promos" method="GET">
+                    <button type="submit" id="promo-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold rounded-t-lg">Promotions</button>
+                </form>
+                <form action="/Sellers" method="GET">
+                    <button type="submit" id="seller-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold rounded-t-lg">Sellers</button>
+                </form>
+                <% if (isLogged && role == 'buyer') { %>
+                    <form action="/Profil" method="GET">
+                        <button type="submit" id="profil-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold rounded-t-lg">Profil</button>
+                    </form>
+               <% }else if(isLogged && role == 'seller'){ %>
+                    <form action="/Manage" method="GET">
+                        <button type="submit" id="manage-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold rounded-t-lg">Manage</button>
+                    </form>
+
+                <% }else if(isLogged && role == 'admin'){ %>
+
+                    <form action="/Admin" method="GET">
+                        <button type="submit" id="admin-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold rounded-t-lg">Administration</button>
+                    </form>
+                
+                <% }else{ %>
+                    <form action="/Login" method="GET">
+                        <button type="submit" id="login-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold rounded-t-lg">Login</button>
+                    </form>
+                <% } %>
+
+                <% if (isLogged ) { %>
+                    <form action="/Logout" method="GET">    
+                        <button id="logout-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold  rounded-t-lg">Logout</button>
+                    </form>
+                <% }else{ %>
+                    <form action="/Register" method="GET">    
+                                        <button id="register-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 ml-2 p-1 text-white font-semibold  rounded-t-lg">Registration</button>
+                                    </form>
+                <% }%>
+
+    </nav>
+</header>

@@ -1,0 +1,33 @@
+<% if(currentRoute === 'Profil') {%>
+    <div class="py-1 mb-2 w-full border-2 border-blue-600 flex-raw flex-wrap flex justify-center" id="mainDiv">
+        <div class="bg-gradient-to-r from-black via-green-600 to-black shadow-md rounded-lg w-64 max-w-sm min-w-max ml-12 p-2 flex flex-col items-center">
+            <form action="/Profil/Myinfos" method="GET">
+                <button type="submit" id="myinfos-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 w-40 text-white font-semibold rounded-lg">My Infos</button>
+            </form>
+            <form action="/Profil/Paymentmethod" method="GET">
+                <button type="submit" id="paymentmethod-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">Payment method</button>
+            </form>
+            <form action="/Profil/Myfavorites" method="GET">
+                <button type="submit" id="myfavorites-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My favorites</button>
+            </form>
+            <form action="/Profil/Mybasket" method="GET">
+                <button type="submit" id="mybasket-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My basket</button>
+            </form>
+            <form action="/Profil/Myloyalties" method="GET">
+                <button type="submit" id="myloyalties-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My loyalties</button>
+            </form>
+            <form action="/Profil/Myorders" method="GET">
+                <button type="submit" id="myorders-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My orders</button>
+            </form>
+            <form action="/Profil/Accountdeletion" method="GET">
+                <button type="submit" id="accountdeletion-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">Account deletion</button>
+            </form>
+        </div>
+
+        <div class="bg-gradient-to-r from-black via-green-600 to-black shadow-md rounded-lg w-full max-w-lg min-w-max mt-5 mr-12 ml-12">
+                <section id="backSection" class="flex flex-col items-center border-2 border-white rounded-lg my-4 mx-4">
+                    <%- include('./myInfosView.ejs'); %>
+                </section>    
+        </div>
+    </div> 
+<% }%>

@@ -1,0 +1,74 @@
+<% if(currentRoute === 'Home' || !currentRoute) {%>
+    <div class="w-full border-2 border-blue-600 flex-raw flex-wrap flex justify-center" id="mainDiv">
+        <div class="bg-gradient-to-t from-black via-green-600 to-black shadow-md rounded-lg w-4/6 max-w-max min-w-min min-h-max ml-12 h-60">
+            <%if(rows){%>
+            <form action="" method="GET">
+             <ul class="flex list-none p-0">
+                <% for (let i = 0; i < 3; i++) { %>
+                    <ul class="flex-1">
+                        <% for (let j = i; j < rows.length; j += 3) { %>
+                            <li class="p-2 my-1"><button type="submit" id="button-cat" name="cat" value="<%= rows[j].name %>" class="border-1 border-white rounded-lg text-black font-bold px-1 py-1 ml-2"><%= rows[j].name %></button></li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </ul>
+            </form>
+            <%}%>
+        </div>
+
+        <div class="shadow-md rounded-lg w-2/6 max-w-lg min-w-max mr-12 ml-12 h-60">
+            <div id="map" class="h-full"></div>
+            <script>
+                const isLogged = JSON.parse('<%- JSON.stringify(isLogged) %>');
+                
+                let map;
+                
+                if(!isLogged){
+                    fetch('https://ipapi.co/json/')
+                            .then(response => response.json())
+                            .then(data => {
+                            const lat = parseFloat(data.latitude);
+                            const lng = parseFloat(data.longitude);
+                            initMap(lat, lng);
+                            fetchNearbyPoints(lat, lng);
+                            })
+                            .catch(error => {
+                            console.error('Erreur de géolocalisation IP:', error);
+                            });
+                }
+
+
+                        function initMap(lat, lng) {
+                            const location = { lat:lat, lng: lng };
+                            map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 12,
+                            center: location,
+                            mapId: "DEMO_MAP_ID",
+                            });
+                        }
+
+                        function fetchNearbyPoints(lat, lng) {
+                            fetch(`/api/BusinessPos?lat=${lat}&lng=${lng}`)
+                                .then(res => res.json())
+                                .then(points => {
+                                    points.forEach(point => {
+                                        const position = { lat: parseFloat(point.latitude), lng: parseFloat(point.longitude) };
+                                        const marker = new google.maps.marker.AdvancedMarkerElement({
+                                            map,
+                                            position: position,
+                                            title: point.name,
+                                            });
+                                    });
+                                })
+                                    .catch(err => console.error('Erreur points proches:', err));
+                                }
+                 
+              </script>
+            
+              <script defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9uz8DtH0UlWwIiegt8MJUU1e_DvtFcNw&loading=async&libraries=marker">
+              </script>
+
+        </div>
+    </div> 
+<%}%>

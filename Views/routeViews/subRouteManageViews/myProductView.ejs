@@ -1,0 +1,25 @@
+<% if(subRoute === 'Myproducts'){ %>
+    <h1 class="text-black font-bold mb-1">Choose which store to add your products to :</h1>
+    <div class= "border-1 border-black py-1 rounded-lg mt-1 px-1">
+        
+        <% if (rows){ %>
+       <form action="/Manage/Myproducts/addPf" method="POST" class="flex flex-col items-center">
+          <select name="sellerId" >
+            
+            <% rows.forEach(row => { %>
+
+                <option value="<%= row.id %>"><%= row.address %></option>
+            <% })%>
+            
+           </select> 
+            
+            <button type="submit" name="add" value="1" class=" bg-white rounded-lg border-1 border-green-600 py-0.5 px-1 mt-2 mb-2">Add Product</button>
+            <button type="submit" name="show" value="1" class=" bg-white rounded-lg border-1 border-green-600 py-0.5 px-1">Show Product</button> 
+        </form>
+       
+        <%} %>
+        
+    </div>
+    
+
+<% }%>

@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <% if(currentRoute === 'Home' || !currentRoute) { %> 
+        Locality 
+        <% }else if(currentRoute === 'Profil'){ %>
+        Locality Profil
+        <% }else if(currentRoute === 'Sellers'){ %>
+        Locality Sellers
+        <% }else if(currentRoute === 'Promos'){ %>
+        Locality Promotions
+        <% }else{ %>
+        Locality Events
+        <% } %>
+    </title>
+
+    <script src="/js/request.js" defer></script>
+    <link rel="stylesheet" href="/css/background.css" />
+    <link rel="stylesheet" href="/css/output.css" />
+    <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.1/dist/tailwind.min.css" /-->
+</head>
+
+<body>
+
+    <%- include('./partials/headerView.ejs'); %>
+    <%- include('./partials/navbarView.ejs'); %>
+    
+    <main class="flex justify-center items-center w-full">
+        
+            <%- include('./routeViews/homeView.ejs'); %>
+            <%- include('./routeViews/profilView.ejs'); %>
+            <%- include('./routeViews/manageView.ejs'); %>
+            <%- include('./routeViews/adminView.ejs'); %>
+        
+    </main>
+
+
+
+
+
+    <%- include('./partials/footerView.ejs'); %>
+</body>
+
+</html>

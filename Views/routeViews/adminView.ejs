@@ -1,0 +1,35 @@
+<% if(currentRoute === 'Admin') {%>
+    <div class="py-1 mb-2 w-full border-2 border-blue-600 flex-raw flex-wrap flex justify-center" id="mainDiv">
+        <div class="bg-gradient-to-r from-black via-green-600 to-black shadow-md rounded-lg w-64 max-w-sm min-w-max ml-12 p-2 flex flex-col items-center">
+            <form action="Admin/Myinfos" method="GET">
+                <button type="submit" id="myinfos-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 w-40 text-white font-semibold rounded-lg">My Infos</button>
+            </form>
+            <form action="Admin/sellersList" method="GET">
+                <button type="submit" id="sellerslist-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">Sellers List</button>
+            </form>
+            <form action="Admin/productsList" method="GET">
+                <button type="submit" id="productslist-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">Products List</button>
+            </form>
+            <form action="Admin/eventsList" method="GET">
+                <button type="submit" id="eventslist-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">Events List</button>
+            </form>
+            <form action="Admin/usersList" method="GET">
+                <button type="submit" id="usersList-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">Users List</button>
+            </form>
+            <form action="Admin/MyAlerts" method="GET">
+                <button type="submit" id="myalerts-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My Alerts</button>
+            </form>
+            <form action="Admin/Accountdeletion" method="GET">
+                <button type="submit" id="accountdeletion-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">Account deletion</button>
+            </form>
+        </div>
+
+        <div class="bg-gradient-to-r from-black via-green-600 to-black shadow-md rounded-lg w-full max-w-lg min-w-max mt-5 mr-12 ml-12 h-60">
+            <% if(currentRoute === 'Admin/Myinfos' || currentRoute === 'Admin') { %>
+                <section id="backSection" class="border-2 border-white rounded-lg my-4 mx-4 h-5/6">
+                   
+                </section>
+                <% }%>
+        </div>
+    </div> 
+<% }%>

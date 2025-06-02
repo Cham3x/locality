@@ -1,0 +1,67 @@
+
+    <%if(subRoute === 'Mybusiness'){ %>
+        <div class=" bg-gray-200 py-1 rounded-lg mt-1 px-1">
+            <form action="/Manage/Mybusiness/addB" method="GET">
+                <button type="submit" id="addbusiness-btn" class="text-blue-800 font-semibold">Add a new business</button>
+            </form>
+        </div>
+        <% if (rows){ %>
+            <% rows.forEach(row => { %>
+             <div class="border-3 border-black rounded-md mt-2 px-2">   
+                <table id="myBusinessInfo">  
+                    <tr> 
+                        <td>
+                            <%= row.name %>
+                        </td>
+                        <td>
+                        <%= row.cat %>
+                        </td>
+                    </tr>
+                    
+                    <tr> 
+                        <td>
+                        <%= row.email %>
+                        </td>
+                        <td >
+                        <%= row.address %>
+                        </td>
+                    </tr>
+                    
+                    <tr> 
+                        <td>
+                        <%= row.tel %>
+                        </td>
+                        <td>
+                        <%= row.city %>
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                        <%= row.click_collect %>
+                        </td>
+                        <td>
+                            <%= row.delivery %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= row.status %>
+                        </td>
+                        <td>
+                            <%= row.date_creation %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= row.description %>
+                        </td>
+                    </tr>     
+                </table>
+            </div>
+            <% }) %>
+        <% }%>
+          
+            
+     <% }%>
+
+

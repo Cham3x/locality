@@ -1,0 +1,35 @@
+<% if(currentRoute === 'Manage') {%>
+    <div class="py-1 mb-2 w-full border-2 border-blue-600 flex-raw flex-wrap flex justify-center" id="mainDiv">
+        <div class="bg-gradient-to-r from-black via-green-600 to-black shadow-md rounded-lg w-64 max-w-sm min-w-max ml-12 p-2 flex flex-col items-center justify-center">
+            <form action="/Manage/Myinfos" method="GET">
+                <button type="submit" id="myinfos-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 w-40 text-white font-semibold rounded-lg">My Infos</button>
+            </form>
+            <form action="/Manage/Mybusiness" method="GET">
+                <button type="submit" id="mybusiness-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My Business</button>
+            </form>
+            <form action="/Manage/Myproducts" method="GET">
+                <button type="submit" id="myproducts-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My Products</button>
+            </form>
+            <form action="/Manage/Myevents" method="GET">
+                <button type="submit" id="myevents-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My Events</button>
+            </form>
+            <form action="/Manage/Myorders" method="GET">
+                <button type="submit" id="myorders-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">My Orders</button>
+            </form>
+            <form action="/Manage/Accountdeletion" method="GET">
+                <button type="submit" id="accountdeletion-btn" class="bg-gradient-to-t from-green-600 via-black to-green-600 p-1 mt-2 w-40 text-white font-semibold rounded-lg">Account deletion</button>
+            </form>
+        </div>
+
+        <div class="bg-gradient-to-r from-black via-green-600 to-black shadow-md rounded-lg w-full max-w-lg min-w-max mt-1 mr-12 ml-12">
+            <section id="backSection" class="flex flex-col items-center border-2 border-white rounded-lg my-4 mx-4">
+                <%- include('./myInfosView.ejs'); %>
+                <%- include('./subRouteManageViews/myBusinessView.ejs'); %>
+                <%- include('./subRouteManageViews/businessFormView.ejs'); %>
+                <%- include('./subRouteManageViews/myProductView.ejs'); %>
+                <%- include('./subRouteManageViews/productFormView.ejs'); %>
+
+            </section>
+        </div>
+    </div> 
+<% }%>

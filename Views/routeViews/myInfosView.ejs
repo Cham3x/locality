@@ -1,0 +1,55 @@
+<% if(currentRoute === 'Manage/Myinfos' || currentRoute === 'Manage' || currentRoute === 'Profil/Myinfos' || currentRoute === 'Profil') { %>
+    
+        <% if(!subRoute){%>
+            
+                <% if (rows){ %>
+                
+                
+                    <% rows.forEach(row => { %>
+                     <table id="myInfo">
+                     <tr> 
+                        <td>
+                           <%= row.name %>
+                        </td>
+                         <td>
+                           <%= row.lastname %>
+                        </td>
+                    </tr>
+                    
+                     <tr> 
+                        <td>
+                           <%= row.email %>
+                        </td>
+                     </tr>
+                     <tr> 
+                        <td>
+                           <%= row.adresse %>
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td>
+                           <%= row.code_postal %>
+                        </td>
+                     </tr>
+                     <tr> 
+                        <td>
+                           <%= row.tel %>
+                        </td>
+                     </tr>
+                     <tr> 
+                        <td>
+                           <%= row.birth_date %>
+                        </td>
+                     </tr>
+                     <tr> 
+                        <td>
+                           <%= row.date_reg %>
+                        </td>
+                     </tr> 
+                    </table>    
+                    <% }) %>
+                
+                <% }%>
+
+          <% }%>
+    <% }%>
